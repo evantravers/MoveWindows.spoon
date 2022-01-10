@@ -17,20 +17,16 @@
 local m = hs.hotkey.modal.new({}, nil)
 
 m.name = "MoveWindows"
-m.version = "0.9.1"
+m.version = "0.9.2"
 m.author = "Evan Travers <evantravers@gmail.com>"
 m.license = "MIT <https://opensource.org/licenses/MIT>"
 m.homepage = "https://github.com/evantravers/hammerspoon-config/Spoons/MoveWindows/"
 
 -- initialize it as "closed"
 m.isOpen = false
--- follow the rules for highlight overlay
-m.highlight = hs.window.highlight.ui.overlay
 
 function m:entered()
-  if m.highlight then
-    hs.window.highlight.start()
-  end
+  hs.window.highlight.start()
 
   m.isOpen = true
   m.alertUuids = hs.fnutils.map(hs.screen.allScreens(), function(screen)
@@ -43,9 +39,7 @@ function m:entered()
 end
 
 function m:exited()
-  if m.highlight then
-    hs.window.highlight.start()
-  end
+  hs.window.highlight.stop()
 
   m.isOpen = false
   hs.fnutils.ieach(m.alertUuids, function(uuid)

@@ -67,7 +67,8 @@ you can just access `MoveWindows:toggle()` directly:
 Hyper:bind({}, 'm', function() MoveWindows:toggle() end)
 ```
 
-## Isolation Mode
+## Highlight
 
-Optionally, if you set `hs.window.highlight.ui.overlay=true` anywhere,
-MoveWindows will use this to highlight the window you are about to move.
+MoveWindows also uses `hs.window.highlight` if you have it setup. To see the
+window you are about to move highlighted, just set
+`hs.window.highlight.ui.overlay=true`.
