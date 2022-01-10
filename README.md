@@ -66,3 +66,8 @@ you can just access `MoveWindows:toggle()` directly:
 ```lua
 Hyper:bind({}, 'm', function() MoveWindows:toggle() end)
 ```
+
+## Isolation Mode
+
+Optionally, if you set `hs.window.highlight.ui.overlay=true` anywhere,
+MoveWindows will use this to highlight the window you are about to move.
