@@ -26,8 +26,6 @@ m.homepage = "https://github.com/evantravers/hammerspoon-config/Spoons/MoveWindo
 m.isOpen = false
 
 function m:entered()
-  hs.window.highlight.start()
-
   m.isOpen = true
   m.alertUuids = hs.fnutils.map(hs.screen.allScreens(), function(screen)
     local prompt = string.format("🖥 : %s",
@@ -39,8 +37,6 @@ function m:entered()
 end
 
 function m:exited()
-  hs.window.highlight.stop()
-
   m.isOpen = false
   hs.fnutils.ieach(m.alertUuids, function(uuid)
     hs.alert.closeSpecific(uuid)
